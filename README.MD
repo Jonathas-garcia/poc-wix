@@ -10,7 +10,7 @@ docker run --rm -v ${pwd}:/wix  dactiv/wix heat dir ./source-files -gg -t .\tran
 docker run --rm -v ${pwd}:/wix  dactiv/wix candle .\files.wsx
 ```
 ```
-docker run --rm -v ${pwd}:/wix  dactiv/wix candle .\output.wsx
+docker run --rm -v ${pwd}:/wix  dactiv/wix candle .\installer.wsx
 ```
 
 ## Generate MSI
