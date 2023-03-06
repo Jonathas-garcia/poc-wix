@@ -7,3 +7,10 @@ docker run --rm -v ${pwd}:/wix  dactiv/wix candle .\output.wsx
 
 ## GENERATE MSI
 docker run --rm -v ${pwd}:/wix  dactiv/wix light -spdb -sval .\*.wixobj -b "./source-files" -o installer.msi
+
+
+### REGISTRY
+
+HKEY_CURRENT_USER\System\CurrentControlSet\Policies
+
+ENVIRONMENT = P OR H
