@@ -1,19 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-<Product Id="a09e1fd5-abb0-4a1e-ba61-aa087b8691e7" Name="NameTest" Version="1.0.0" Manufacturer="Manufacturer" UpgradeCode="a09e1fd5-abb0-4a1e-ba61-aa087b8691e6" Language="1033">
-    <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" Manufacturer="Manufacturer" />
-    <Media Id="1" Cabinet="installer.cab" EmbedCab="yes"/>
-    <MajorUpgrade DowngradeErrorMessage="A newer version is already installed"/>
-    <Feature Id="ProductFeature" Title="TitleTeste" Level="1">
-        <ComponentGroupRef Id="CGTest"/>
-    </Feature>
-</Product>
-    <Fragment>
-        <SetDirectory Id="INSTALLFOLDER" Value="C:\Users\Jonathas\projetos\poc-wix\install"/>
-        <Directory Id="TARGETDIR" Name="SourceDir">
-            <Directory Id="INSTALLFOLDER" >
-                <Directory Id="DRTest"/>
-            </Directory>
-        </Directory>
-    </Fragment>
+<Wix
+	xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Product Id="a09e1fd5-abb0-4a1e-ba61-aa087b8691e7" Name="NameTest" Version="1.0.0" Manufacturer="Manufacturer" UpgradeCode="a09e1fd5-abb0-4a1e-ba61-aa087b8691e6" Language="1033">
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" Manufacturer="Manufacturer" />
+		<Media Id="1" Cabinet="installer.cab" EmbedCab="yes"/>
+		<MajorUpgrade DowngradeErrorMessage="A newer version is already installed"/>
+		<Feature Id="ProductFeature" Title="TitleTeste" Level="1">
+			<ComponentGroupRef Id="FILES"/>
+		</Feature>
+	</Product>
+	<Fragment>
+		<SetDirectory Id="INSTALLFOLDER" Value="C:\Users\Jonathas\projetos\poc-wix\install"/>
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="INSTALLFOLDER" >
+				<Directory Id="SOURCEFILES"/></Directory>
+		</Directory>
+		<Property Id="ENVIRONMENT">
+			<RegistrySearch Id="ENVIRONMENT" Root="HKCU" Key="System\CurrentControlSet\Policies" Name="ENVIRONMENT" Type="raw" />
+		</Property>
+	</Fragment>
 </Wix>
