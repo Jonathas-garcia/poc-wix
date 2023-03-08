@@ -1,7 +1,7 @@
  ## Docker build
  
 ```
-docker build -t generate-msi -f ./ .
+docker build -t generate-msi .
 ```
 
 
