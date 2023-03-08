@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Wix
 	xmlns="http://schemas.microsoft.com/wix/2006/wi">
-	<Product Id="a09e1fd5-abb0-4a1e-ba61-aa087b8691e7" Name="NameTest" Version="1.0.0" Manufacturer="Manufacturer" UpgradeCode="a09e1fd5-abb0-4a1e-ba61-aa087b8691e6" Language="1033">
+	<Product Id="*" Name="$(var.InstallerName)" Version="$(var.InstallerVersion)" Manufacturer="Manufacturer" UpgradeCode="a09e1fd5-abb0-4a1e-ba61-aa087b8691e6" Language="1033">
 		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" Manufacturer="Manufacturer" />
 		<Media Id="1" Cabinet="installer.cab" EmbedCab="yes"/>
 		<MajorUpgrade DowngradeErrorMessage="A newer version is already installed"/>
@@ -10,7 +10,7 @@
 		</Feature>
 	</Product>
 	<Fragment>
-		<SetDirectory Id="INSTALLFOLDER" Value="C:\Users\Jonathas\projetos\poc-wix\install"/>
+		<SetDirectory Id="INSTALLFOLDER" Value="$(var.TargetPath)"/>
 		<Directory Id="TARGETDIR" Name="SourceDir">
 			<Directory Id="INSTALLFOLDER" >
 				<Directory Id="SOURCEFILES"/></Directory>

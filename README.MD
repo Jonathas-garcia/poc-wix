@@ -1,22 +1,15 @@
- ## Generate WSX
+ ## Docker build
  
 ```
-docker run --rm -v ${pwd}:/wix  dactiv/wix heat dir ./source-files -gg -t .\transform.xslt -cg "FILES" -sfrag -dr "SOURCEFILES" -srd  -o files.wsx
+docker build -t generate-msi -f ./ .
 ```
 
 
-## Generate WIXOBJ
+## Run
 ```
-docker run --rm -v ${pwd}:/wix  dactiv/wix candle .\files.wsx
-```
-```
-docker run --rm -v ${pwd}:/wix  dactiv/wix candle .\installer.wsx
+docker run --rm -v ${pwd}:/wix  generate-msi
 ```
 
-## Generate MSI
-```
-docker run --rm -v ${pwd}:/wix  dactiv/wix light -spdb -sval .\*.wixobj -b "./source-files" -o installer.msi
-```
 
 ### REGISTRY
 
