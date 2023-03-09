@@ -13,8 +13,9 @@
 		<SetDirectory Id="INSTALLFOLDER" Value="$(var.TargetPath)"/>
 		<Directory Id="TARGETDIR" Name="SourceDir">
 			<Directory Id="INSTALLFOLDER" >
-				<Directory Id="SOURCEFILES"/></Directory>
+				<Directory Id="SOURCEFILES"/>
 			</Directory>
+		</Directory>
 		<Property Id="ENVIRONMENT">
 			<RegistrySearch Id="ENVIRONMENT" Root="HKCU" Key="System\CurrentControlSet\Policies" Name="ENVIRONMENT" Type="raw" />
 		</Property>
